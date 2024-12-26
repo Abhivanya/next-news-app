@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 const devloper = () => {
   const router = useRouter();
 
@@ -9,13 +10,13 @@ const devloper = () => {
     { id: 3, name: "Suresh", role: "Frontend Devloper" },
   ];
 
-  const userDetails = details[userId];
+  const devloper = details.find((dev) => dev.id == userId);
 
-  if (!userDetails) return <p>Developer doesn't exist</p>;
+  if (!devloper) return <p>Developer doesn't exist</p>;
   return (
     <div>
-      <h1>Name : {userDetails.name}</h1>
-      <p>Role : {userDetails.role}</p>
+      <h1>Name : {devloper.name}</h1>
+      <p>Role : {devloper.role}</p>
     </div>
   );
 };
